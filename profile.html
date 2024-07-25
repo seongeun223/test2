@@ -19,6 +19,9 @@
         height: 100%;
         /* 전체 높이를 100%로 설정 */
         margin: 0;
+        /* 기본 여백 제거 */
+        overflow: hidden;
+        /* 스크롤을 제거 */
     }
 
     body {
@@ -32,8 +35,8 @@
         bottom: 0;
         margin: 0;
         padding: 20px;
-        overflow: auto;
-        /* 스크롤 가능하도록 설정 */
+        overflow-y: auto;
+        /* 수직 스크롤 가능하도록 설정 */
     }
 
     body {
@@ -47,6 +50,8 @@
     }
 
     .bookcover {
+        min-height: 100vh;
+        /* 최소 높이를 100vh로 설정하여 스크롤 생성 */
         background-color: pink;
         border-radius: 9px;
         border: 1px solid #738186;
@@ -113,6 +118,7 @@
         background-color: white;
         border-radius: 9px;
         border: 1px solid #cdd5d8;
+        max-height: 63%; /* 최대 높이를 설정하여 크기 조정 */
     }
 
     #photo img {
@@ -134,7 +140,7 @@
 
     .profile_text2 {
         font-family: 'KyoboHand';
-        margin: 170px 20px 10px 20px;
+        margin: 120px 20px 10px 20px; /* 위쪽 여백을 줄여서 위로 올림 */
     }
 
     .profile-dropdown {
@@ -202,6 +208,7 @@
         border-radius: 9px;
         border: 1px solid #cdd5d8;
         padding: 3%;
+        max-height: 60%; /* 최대 높이를 설정하여 크기 조정 */
     }
 
     .contents_title {
@@ -262,7 +269,8 @@
 
     #gif {
         width: 90%;
-        margin: 3px 25px 0px 25px;
+        margin: 3px 0px 0px 0px; /* 아래 여백을 줄여서 위로 올림 */
+        margin-bottom: 0; /* 아래 여백을 0으로 설정 */
     }
 
     #menu {
@@ -296,8 +304,8 @@
                                 <div class="triangle-down"></div>
                             </div>
                             <div class="dropdown-content">
-                                <a target="_blank">코뮤니티로 가기</a>
-                                <a target="_blank">인스타로 가기</a>
+                                <option>코뮤니티로 가기</option>
+                                <option>인스타로 가기</option>
                             </div>
                         </div>
                     </div>
@@ -329,7 +337,7 @@
                         </div>
                         <div id="miniroom">
                             <div class="contents_title"><strong>Miniroom</strong></div>
-                            <div><img id="gif" src="gif/Kuromi1.gif" alt="쿠로미 gif"></div>
+                            <div><img id="gif" src="gif/2.gif" alt="쿠로미,마이멜로디 gif"></div>
                         </div>
                     </div>
                 </div>
