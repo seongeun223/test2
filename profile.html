@@ -5,7 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>profile</title>
-<<<<<<< HEAD
+    <link rel="stylesheet" href="./static/font.css" />
+    <link rel="stylesheet" href="./static/layout.css" />
+    <link rel="stylesheet" href="./static/home.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu&family=Sunflower:wght@300&display=swap" rel="stylesheet">
     <style>
         #image-bullet li:first-child,
         #image-bullet li:nth-child(2),
@@ -13,289 +19,283 @@
         #image-bullet li:nth-child(4) {
             font-weight: bold;
         }
-=======
-    <link rel="stylesheet" href="./static/font.css" />
-    <link rel="stylesheet" href="./static/layout.css" />
-    <link rel="stylesheet" href="./static/home.css" />
->>>>>>> 9c3f6743248fc422f7f2aa4c17d59ded82c96fb6
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gaegu&family=Sunflower:wght@300&display=swap" rel="stylesheet">
-</head>
-<style>
-    html,
-    body {
-        height: 100%;
-        /* 전체 높이를 100%로 설정 */
-        margin: 0;
-        /* 기본 여백 제거 */
-        overflow: hidden;
-        /* 스크롤을 제거 */
-    }
+        body {
+            height: 100%;
+            /* 전체 높이를 100%로 설정 */
+            margin: 0;
+            /* 기본 여백 제거 */
+            overflow: hidden;
+            /* 스크롤을 제거 */
+        }
 
-    body {
-        background-color: #EFC2DD;
-        background-image: url(../static/images/pattern.png);
-        background-size: 100px;
-        position: fixed;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        margin: 0;
-        padding: 20px;
-        overflow-y: auto;
-        /* 수직 스크롤 가능하도록 설정 */
-    }
+        body {
+            background-color: #EFC2DD;
+            background-image: url(../static/images/pattern.png);
+            background-size: 100px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: 0;
+            padding: 20px;
+            overflow-y: auto;
+            /* 수직 스크롤 가능하도록 설정 */
+        }
 
-    body {
-        font-family: 'Gaegu', cursive;
-        font-family: 'Sunflower', sans-serif;
-    }
+        body {
+            font-family: 'Gaegu', cursive;
+            font-family: 'Sunflower', sans-serif;
+        }
 
-    user agent stylesheet body {
-        display: block;
-        margin: 8px;
-    }
+        user agent stylesheet body {
+            display: block;
+            margin: 8px;
+        }
 
-    .bookcover {
-        min-height: 100vh;
-        /* 최소 높이를 100vh로 설정하여 스크롤 생성 */
-        background-color: pink;
-        border-radius: 9px;
-        border: 1px solid #738186;
-        width: 100%;
-        max-width: 1200px;
-        /* 최대 너비 설정 */
-        height: 660px;
-        margin: 100px auto;
-        position: relative;
-    }
+        .bookcover {
+            min-height: 100vh;
+            /* 최소 높이를 100vh로 설정하여 스크롤 생성 */
+            background-color: pink;
+            border-radius: 9px;
+            border: 1px solid #738186;
+            width: 100%;
+            max-width: 1200px;
+            /* 최대 너비 설정 */
+            height: 660px;
+            margin: 100px auto;
+            position: relative;
+        }
 
-    user agent stylesheet div {
-        display: block;
-        unicode-bidi: isolate;
-    }
+        user agent stylesheet div {
+            display: block;
+            unicode-bidi: isolate;
+        }
 
-    .bookdot {
-        border: 2px dashed white;
-        border-radius: 9px;
-        position: absolute;
-        top: 15px;
-        left: 15px;
-        bottom: 15px;
-        right: 15px;
-    }
+        .bookdot {
+            border: 2px dashed white;
+            border-radius: 9px;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            bottom: 15px;
+            right: 15px;
+        }
 
-    .page {
-        background-color: #f0eeee;
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        bottom: 10px;
-        right: 10px;
-        border-radius: 9px;
-        display: flex;
-        flex-wrap: wrap;
-        /* 요소들이 화면에 잘 보이도록 감싸기 */
-        justify-content: space-between;
-        /* 요소 간 간격 조정 */
-    }
+        .page {
+            background-color: #f0eeee;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            bottom: 10px;
+            right: 10px;
+            border-radius: 9px;
+            display: flex;
+            flex-wrap: wrap;
+            /* 요소들이 화면에 잘 보이도록 감싸기 */
+            justify-content: space-between;
+            /* 요소 간 간격 조정 */
+        }
 
-    #column1 {
-        display: flex;
-        flex: 0.5;
-        flex-direction: column;
-        flex: 1;
-        /* 각 열이 동일한 너비를 차지하도록 설정 */
-        min-width: 300px;
-        /* 최소 너비 설정 */
-        margin: 10px;
-        /* 열 간 간격 */
-    }
+        #column1 {
+            display: flex;
+            flex: 0.5;
+            flex-direction: column;
+            flex: 1;
+            /* 각 열이 동일한 너비를 차지하도록 설정 */
+            min-width: 300px;
+            /* 최소 너비 설정 */
+            margin: 10px;
+            /* 열 간 간격 */
+        }
 
-    #today {
-        flex: 0.1;
-        margin: 15px 0px 0px 15px;
-        text-align: center;
-        font-size: 13px;
-    }
+        #today {
+            flex: 0.1;
+            margin: 15px 0px 0px 15px;
+            text-align: center;
+            font-size: 13px;
+        }
 
-    #profile {
-        flex: 2;
-        margin: 0px 15px 15px 15px;
-        background-color: white;
-        border-radius: 9px;
-        border: 1px solid #cdd5d8;
-        max-height: 63%; /* 최대 높이를 설정하여 크기 조정 */
-    }
+        #profile {
+            flex: 2;
+            margin: 0px 15px 15px 15px;
+            background-color: white;
+            border-radius: 9px;
+            border: 1px solid #cdd5d8;
+            max-height: 63%;
+            /* 최대 높이를 설정하여 크기 조정 */
+        }
 
-    #photo img {
-        width: 10em;
-        height: 10em;
-        border: 1px solid #cdd5d8;
-        margin: 20px 20px 20px 20px;
-    }
+        #photo img {
+            width: 10em;
+            height: 10em;
+            border: 1px solid #cdd5d8;
+            margin: 20px 20px 20px 20px;
+        }
 
-    user agent stylesheet img {
-        overflow-clip-margin: content-box;
-        overflow: clip;
-    }
+        user agent stylesheet img {
+            overflow-clip-margin: content-box;
+            overflow: clip;
+        }
 
-    .profile_text {
-        font-family: 'KyoboHand';
-        margin: 0px 20px 20px 20px;
-    }
+        .profile_text {
+            font-family: 'KyoboHand';
+            margin: 0px 20px 20px 20px;
+        }
 
-    .profile_text2 {
-        font-family: 'KyoboHand';
-        margin: 120px 20px 10px 20px; /* 위쪽 여백을 줄여서 위로 올림 */
-    }
+        .profile_text2 {
+            font-family: 'KyoboHand';
+            margin: 120px 20px 10px 20px;
+            /* 위쪽 여백을 줄여서 위로 올림 */
+        }
 
-    .profile-dropdown {
-        flex: 0;
-        border: 1px solid #c9d4da;
-        padding: 5px;
-        font-size: 0.8rem;
-        position: relative;
-        margin: 0px 20px 20px 20px;
-    }
+        .profile-dropdown {
+            flex: 0;
+            border: 1px solid #c9d4da;
+            padding: 5px;
+            font-size: 0.8rem;
+            position: relative;
+            margin: 0px 20px 20px 20px;
+        }
 
-    .dropdown-btn {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+        .dropdown-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .triangle-down {
-        width: 0;
-        height: 0;
-        border-left: 4.5px solid transparent;
-        border-right: 4.5px solid transparent;
-        border-top: 5px solid #838383;
-    }
+        .triangle-down {
+            width: 0;
+            height: 0;
+            border-left: 4.5px solid transparent;
+            border-right: 4.5px solid transparent;
+            border-top: 5px solid #838383;
+        }
 
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-    }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
 
-    #column2 {
-        display: flex;
-        flex-direction: column;
-        flex: 1.2;
-        flex: 1;
-        /* 각 열이 동일한 너비를 차지하도록 설정 */
-        min-width: 300px;
-        /* 최소 너비 설정 */
-        margin: 10px;
-        /* 열 간 간격 */
-    }
+        #column2 {
+            display: flex;
+            flex-direction: column;
+            flex: 1.2;
+            flex: 1;
+            /* 각 열이 동일한 너비를 차지하도록 설정 */
+            min-width: 300px;
+            /* 최소 너비 설정 */
+            margin: 10px;
+            /* 열 간 간격 */
+        }
 
-    #intro {
-        display: flex;
-        flex: 0.1;
-        margin: 15px 0px 0px 15px;
-        font-size: 13px;
-    }
+        #intro {
+            display: flex;
+            flex: 0.1;
+            margin: 15px 0px 0px 15px;
+            font-size: 13px;
+        }
 
-    #title {
-        flex: 0.5;
-    }
+        #title {
+            flex: 0.5;
+        }
 
-    #url {
-        flex: 0.5;
-    }
+        #url {
+            flex: 0.5;
+        }
 
-    #contents {
-        flex: 2;
-        margin: 0px 0px 15px 15px;
-        background-color: white;
-        border-radius: 9px;
-        border: 1px solid #cdd5d8;
-        padding: 3%;
-        max-height: 60%; /* 최대 높이를 설정하여 크기 조정 */
-    }
+        #contents {
+            flex: 2;
+            margin: 0px 0px 15px 15px;
+            background-color: white;
+            border-radius: 9px;
+            border: 1px solid #cdd5d8;
+            padding: 3%;
+            max-height: 60%;
+            /* 최대 높이를 설정하여 크기 조정 */
+        }
 
-    .contents_title {
-        color: deeppink;
-        border-bottom: 1px solid dimgray;
-    }
+        .contents_title {
+            color: deeppink;
+            border-bottom: 1px solid dimgray;
+        }
 
-    strong {
-        font-weight: bold;
-    }
+        strong {
+            font-weight: bold;
+        }
 
-    #updatedNews {
-        display: flex;
-        flex-direction: row;
-        margin-bottom: 10%;
-    }
+        #updatedNews {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 10%;
+        }
 
-    #news1 {
-        margin-right: 15%;
-        display: flex;
-        flex-direction: column;
-    }
+        #news1 {
+            margin-right: 15%;
+            display: flex;
+            flex-direction: column;
+        }
 
-    .text {
-        flex: 1;
-        padding: 0.05em;
-    }
+        .text {
+            flex: 1;
+            padding: 0.05em;
+        }
 
-    .album {
-        background-color: rgb(255, 105, 113);
-        color: white;
-        border-radius: 3px;
-        font-size: 0.8rem;
-        padding: 3px;
-    }
+        .album {
+            background-color: rgb(255, 105, 113);
+            color: white;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            padding: 3px;
+        }
 
-    .board {
-        background-color: rgb(99, 106, 197);
-        color: white;
-        border-radius: 3px;
-        font-size: 0.8rem;
-        padding: 3px;
-    }
+        .board {
+            background-color: rgb(99, 106, 197);
+            color: white;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            padding: 3px;
+        }
 
-    .text2 {
-        border-bottom: 1px dotted dimgray;
-        display: flex;
-    }
+        .text2 {
+            border-bottom: 1px dotted dimgray;
+            display: flex;
+        }
 
-    .num {
-        color: rgb(52, 52, 214);
-    }
+        .num {
+            color: rgb(52, 52, 214);
+        }
 
-    .contents_title {
-        color: deeppink;
-        border-bottom: 1px solid dimgray;
-    }
+        .contents_title {
+            color: deeppink;
+            border-bottom: 1px solid dimgray;
+        }
 
-    #gif {
-        width: 90%;
-        margin: 3px 0px 0px 0px; /* 아래 여백을 줄여서 위로 올림 */
-        margin-bottom: 0; /* 아래 여백을 0으로 설정 */
-    }
+        #gif {
+            width: 90%;
+            margin: 3px 0px 0px 0px;
+            /* 아래 여백을 줄여서 위로 올림 */
+            margin-bottom: 0;
+            /* 아래 여백을 0으로 설정 */
+        }
 
-    #menu {
-        flex: 0.2;
-        margin: 70px 15px 15px 0px;
-        flex-direction: column;
-        /* 메뉴 버튼을 세로로 나열 */
-    }
+        #menu {
+            flex: 0.2;
+            margin: 70px 15px 15px 0px;
+            flex-direction: column;
+            /* 메뉴 버튼을 세로로 나열 */
+        }
 
-    a:-webkit-any-link {
-        color: -webkit-link;
-        cursor: pointer;
-        text-decoration: underline;
-    }
-</style>
+        a:-webkit-any-link {
+            color: -webkit-link;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
