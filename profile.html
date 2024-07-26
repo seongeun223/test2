@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>profile</title>
+<<<<<<< HEAD
     <style>
         #image-bullet li:first-child,
         #image-bullet li:nth-child(2),
@@ -12,20 +13,353 @@
         #image-bullet li:nth-child(4) {
             font-weight: bold;
         }
+=======
+    <link rel="stylesheet" href="./static/font.css" />
+    <link rel="stylesheet" href="./static/layout.css" />
+    <link rel="stylesheet" href="./static/home.css" />
+>>>>>>> 9c3f6743248fc422f7f2aa4c17d59ded82c96fb6
 
-        #image-bullet {
-            list-style-image: url('image/strawberry.png');
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu&family=Sunflower:wght@300&display=swap" rel="stylesheet">
+</head>
+<style>
+    html,
+    body {
+        height: 100%;
+        /* 전체 높이를 100%로 설정 */
+        margin: 0;
+        /* 기본 여백 제거 */
+        overflow: hidden;
+        /* 스크롤을 제거 */
+    }
+
+    body {
+        background-color: #EFC2DD;
+        background-image: url(../static/images/pattern.png);
+        background-size: 100px;
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0;
+        padding: 20px;
+        overflow-y: auto;
+        /* 수직 스크롤 가능하도록 설정 */
+    }
+
+    body {
+        font-family: 'Gaegu', cursive;
+        font-family: 'Sunflower', sans-serif;
+    }
+
+    user agent stylesheet body {
+        display: block;
+        margin: 8px;
+    }
+
+    .bookcover {
+        min-height: 100vh;
+        /* 최소 높이를 100vh로 설정하여 스크롤 생성 */
+        background-color: pink;
+        border-radius: 9px;
+        border: 1px solid #738186;
+        width: 100%;
+        max-width: 1200px;
+        /* 최대 너비 설정 */
+        height: 660px;
+        margin: 100px auto;
+        position: relative;
+    }
+
+    user agent stylesheet div {
+        display: block;
+        unicode-bidi: isolate;
+    }
+
+    .bookdot {
+        border: 2px dashed white;
+        border-radius: 9px;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .page {
+        background-color: #f0eeee;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        bottom: 10px;
+        right: 10px;
+        border-radius: 9px;
+        display: flex;
+        flex-wrap: wrap;
+        /* 요소들이 화면에 잘 보이도록 감싸기 */
+        justify-content: space-between;
+        /* 요소 간 간격 조정 */
+    }
+
+    #column1 {
+        display: flex;
+        flex: 0.5;
+        flex-direction: column;
+        flex: 1;
+        /* 각 열이 동일한 너비를 차지하도록 설정 */
+        min-width: 300px;
+        /* 최소 너비 설정 */
+        margin: 10px;
+        /* 열 간 간격 */
+    }
+
+    #today {
+        flex: 0.1;
+        margin: 15px 0px 0px 15px;
+        text-align: center;
+        font-size: 13px;
+    }
+
+    #profile {
+        flex: 2;
+        margin: 0px 15px 15px 15px;
+        background-color: white;
+        border-radius: 9px;
+        border: 1px solid #cdd5d8;
+        max-height: 63%; /* 최대 높이를 설정하여 크기 조정 */
+    }
+
+    #photo img {
+        width: 10em;
+        height: 10em;
+        border: 1px solid #cdd5d8;
+        margin: 20px 20px 20px 20px;
+    }
+
+    user agent stylesheet img {
+        overflow-clip-margin: content-box;
+        overflow: clip;
+    }
+
+    .profile_text {
+        font-family: 'KyoboHand';
+        margin: 0px 20px 20px 20px;
+    }
+
+    .profile_text2 {
+        font-family: 'KyoboHand';
+        margin: 120px 20px 10px 20px; /* 위쪽 여백을 줄여서 위로 올림 */
+    }
+
+    .profile-dropdown {
+        flex: 0;
+        border: 1px solid #c9d4da;
+        padding: 5px;
+        font-size: 0.8rem;
+        position: relative;
+        margin: 0px 20px 20px 20px;
+    }
+
+    .dropdown-btn {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .triangle-down {
+        width: 0;
+        height: 0;
+        border-left: 4.5px solid transparent;
+        border-right: 4.5px solid transparent;
+        border-top: 5px solid #838383;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    #column2 {
+        display: flex;
+        flex-direction: column;
+        flex: 1.2;
+        flex: 1;
+        /* 각 열이 동일한 너비를 차지하도록 설정 */
+        min-width: 300px;
+        /* 최소 너비 설정 */
+        margin: 10px;
+        /* 열 간 간격 */
+    }
+
+    #intro {
+        display: flex;
+        flex: 0.1;
+        margin: 15px 0px 0px 15px;
+        font-size: 13px;
+    }
+
+    #title {
+        flex: 0.5;
+    }
+
+    #url {
+        flex: 0.5;
+    }
+
+    #contents {
+        flex: 2;
+        margin: 0px 0px 15px 15px;
+        background-color: white;
+        border-radius: 9px;
+        border: 1px solid #cdd5d8;
+        padding: 3%;
+        max-height: 60%; /* 최대 높이를 설정하여 크기 조정 */
+    }
+
+    .contents_title {
+        color: deeppink;
+        border-bottom: 1px solid dimgray;
+    }
+
+    strong {
+        font-weight: bold;
+    }
+
+    #updatedNews {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 10%;
+    }
+
+    #news1 {
+        margin-right: 15%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .text {
+        flex: 1;
+        padding: 0.05em;
+    }
+
+    .album {
+        background-color: rgb(255, 105, 113);
+        color: white;
+        border-radius: 3px;
+        font-size: 0.8rem;
+        padding: 3px;
+    }
+
+    .board {
+        background-color: rgb(99, 106, 197);
+        color: white;
+        border-radius: 3px;
+        font-size: 0.8rem;
+        padding: 3px;
+    }
+
+    .text2 {
+        border-bottom: 1px dotted dimgray;
+        display: flex;
+    }
+
+    .num {
+        color: rgb(52, 52, 214);
+    }
+
+    .contents_title {
+        color: deeppink;
+        border-bottom: 1px solid dimgray;
+    }
+
+    #gif {
+        width: 90%;
+        margin: 3px 0px 0px 0px; /* 아래 여백을 줄여서 위로 올림 */
+        margin-bottom: 0; /* 아래 여백을 0으로 설정 */
+    }
+
+    #menu {
+        flex: 0.2;
+        margin: 70px 15px 15px 0px;
+        flex-direction: column;
+        /* 메뉴 버튼을 세로로 나열 */
+    }
+
+    a:-webkit-any-link {
+        color: -webkit-link;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+</style>
 </head>
 
 <body>
-    <ul id="image-bullet">
-        <li>NAME : 박성은</li>
-        <li>AGE : 24</li>
-        <li>MBTI : ISTJ</li>
-        <li>HOBBY : GAME</li>
-    </ul>
+    <div class="bookcover">
+        <div class="bookdot">
+            <div class="page">
+                <div id="column1">
+                    <div id="today">TODAY <span style="color: red;">28</span> | TOTAL 234918</div>
+                    <div id="profile">
+                        <div id="photo"><img src="gif/Kuromi1.gif"></div>
+                        <div class="profile_text">안녕하세요. <br>반갑습니다. 💖</div>
+                        <div class="profile_text2">🌼 프로필</div>
+                        <div class="profile-dropdown">
+                            <div class="dropdown-btn">
+                                <div class="dropdown-title">파도타기</div>
+                                <div class="triangle-down"></div>
+                            </div>
+                            <div class="dropdown-content">
+                                <option>코뮤니티로 가기</option>
+                                <option>인스타로 가기</option>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="column2">
+                    <div id="intro">
+                        <div id="title">성은님의 추억 상ㅈΓ ♥⁼³₌₃</div>
+                        <div id="url">홈페이지 바로가기</div>
+                    </div>
+                    <div id="contents">
+                        <div class="contents_title"><strong>Updated news</strong></div>
+                        <div id="updatedNews">
+                            <div id="news1">
+                                <div class="text"><span class="album">사진첩</span>ⓞ1런¸나lブr ∥凹r보∥ 같죠。ː</div>
+                                <div class="text"><span class="board">게시판</span>오늘부터 당신의 마음을 압류합니다...</div>
+                                <div class="text"><span class="board">게시판</span>시켜줘 명예소방관</div>
+                                <div class="text"><span class="album">사진첩</span>ㄴr는 ㄱr끔 눈물을 흘린ㄷr...☆</div>
+                            </div>
+                            <div id="news2">
+                                <div class="text2">
+                                    <div>다이어리 <span class="num">8/25</span></div>
+                                    <div>사진첩 <span class="num">12/25</span></div>
+                                </div>
+                                <div class="text2">
+                                    <div>게시판 <span class="num">10/25</span></div>
+                                    <div>방명록 <span class="num">20/25</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="miniroom">
+                            <div class="contents_title"><strong>Miniroom</strong></div>
+                            <div><img id="gif" src="gif/2.gif" alt="쿠로미,마이멜로디 gif"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="menu">
+                    <button>홈</button></a>
+                    <button>다이어리</button></a>
+                    <button>사진첩</button></a>
+                    <button>방명록</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
