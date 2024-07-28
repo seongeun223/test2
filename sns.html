@@ -49,6 +49,7 @@
             background-clip: text;
             -webkit-background-clip: text;
             border-radius: 50%;
+            text-decoration: none;
         }
 
         .hexagon:before,
@@ -72,6 +73,11 @@
         .hexagon i:hover {
             color: #bd4351;
         }
+
+        a {
+            text-decoration: none;
+            /* 밑줄 제거 */
+        }
     </style>
 </head>
 
@@ -81,14 +87,25 @@
             <div class="hexagon">
                 <i class="fab fa-instagram"></i>
             </div>
-        </a> 
+        </a>
+    </div>
+    <div class="hexagon-wrapper">
+        <div class="hexagon">
+            <i class="fab fa-facebook-f"></i>
+        </div>
+    </div>
+
+    <div class="hexagon-wrapper">
+        <div class="hexagon">
+            <i class="fab fa-twitter"></i>
+        </div>
     </div>
 
     <div class="hexagon-wrapper">
         <a href="https://github.com/seongeun223">
             <div class="hexagon">
                 <i class="fab fa-github"></i>
-        </div>
+            </div>
         </a>
     </div>
 </body>
