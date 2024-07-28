@@ -14,6 +14,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Gaegu&family=Sunflower:wght@300&display=swap" rel="stylesheet">
 </head>
 <style>
+    #image-bullet {
+        list-style-image: url('image/strawberry.png');
+        font: bold;
+    }
+
     html,
     body {
         height: 100%;
@@ -47,13 +52,13 @@
         /* 하단 사이즈 줄임 */
         background-color: pink;
         border-radius: 9px;
-        border: 1px solid #738186; 
+        border: 1px solid #738186;
         width: 100%;
         max-width: 1200px;
         margin: 0 auto;
         position: relative;
         /* overflow: auto; */
-        
+
     }
 
     user agent stylesheet div {
@@ -106,7 +111,7 @@
         background-color: white;
         border-radius: 9px;
         border: 1px solid #cdd5d8;
-        max-height: 98%;
+        max-height: 90%;
         /* 최대 높이를 설정하여 크기 조정 */
     }
 
@@ -124,12 +129,13 @@
 
     .profile_text {
         font-family: 'KyoboHand';
-        margin: 0px 20px 20px 20px;
+        margin: 0px 15px 15px 15px;
+        font-size: 16px;
     }
 
     .profile_text2 {
         font-family: 'KyoboHand';
-        margin: 120px 20px 10px 20px;
+        margin: 90px 20px 10px 20px;
         /* 위쪽 여백을 줄여서 위로 올림 */
     }
 
@@ -139,7 +145,7 @@
         padding: 5px;
         font-size: 0.8rem;
         position: relative;
-        margin: 0px 20px 20px 20px;
+        margin: 0px 17px 20px 20px;
     }
 
     .dropdown-btn {
@@ -196,9 +202,9 @@
         background-color: white;
         border-radius: 5px;
         padding: 10px;
-        margin: 7px;
+        margin: 7px 0px 10px 0px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        max-height: 90%;
+        max-height: 87%;
     }
 
     .contents_title {
@@ -287,14 +293,24 @@
         <div class="bookdot">
             <div class="page">
                 <div id="column1">
-                    <div id="today">TODAY <span style="color: red; background-color: white;">28</span> | TOTAL 234918</div>
+                    <div id="today">TODAY <span style="color: red; background-color: white;">28</span> | TOTAL 234918
+                    </div>
                     <div id="profile">
                         <div id="photo"><img src="gif/Kuromi1.gif"></div>
-                        <div class="profile_text">안녕하세요. <br>반갑습니다. 💖</div>
+                        <div class="profile_text">
+                            <ul id="image-bullet">
+                                <li>NAME : 박성은</li>
+                                <li>AGE : 24</li>
+                                <li>MBTI : ISTJ</li>
+                                <li>HOBBY : GAME</li>
+                            </ul>
+                        </div>
                         <div class="profile_text2">🌼 프로필</div>
                         <div class="profile-dropdown">
                             <div class="dropdown-btn">
-                                <div class="dropdown-title"><option>파도타기</option></div>
+                                <div class="dropdown-title">
+                                    <option>파도타기</option>
+                                </div>
                                 <div class="triangle-down"></div>
                             </div>
                             <div class="dropdown-content">
