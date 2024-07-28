@@ -14,8 +14,9 @@
             height: 100vh;
             background-color: #EFC2DD;
             font-family: Arial, sans-serif;
-            position: relative;
-            /* 타이틀을 위한 상대 위치 설정 */
+            overflow: auto;
+            flex-direction: column;
+            /* 세로 방향으로 정렬 */
         }
 
         .title {
@@ -31,19 +32,33 @@
             /* 타이틀 색상 */
         }
 
+        
+        #title2 {
+            position: absolute;
+            /* 절대 위치 설정 */
+            left: 40px;
+            /* 좌측 여백 */
+            font-size: 36px;
+            /* 타이틀 크기 */
+            color: #333;
+            /* 타이틀 색상 */
+        }
+
         .cd-player {
             display: flex;
-            flex-direction: column;
-            /* 세로 방향으로 정렬 */
+            flex-direction: row;
+            /* 가로 방향으로 정렬 */
             align-items: center;
             /* 중앙 정렬 */
             margin-right: 40px;
             /* 이미지와의 간격을 위해 여백 추가 */
+            margin-bottom: 10px; /* CD 플레이어 아래쪽 여백 추가 */
+            margin-top: 325px;
         }
 
         .cd {
-            width: 200px;
-            height: 200px;
+            width: 250px;
+            height: 250px;
             border-radius: 50%;
             background: url('image/행운을\ 빌어줘.jpg') no-repeat center center;
             /* 앨범 커버 이미지 설정 */
@@ -56,18 +71,20 @@
             /* 클릭 가능하게 설정 */
             transition: transform 0.3s;
             /* 회전 시 부드럽게 전환 */
+            cursor: pointer;
+            display: inline-block;
         }
 
         .cd-inner {
-            width: 100%;
-            height: 100%;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            /* CD 겉면 효과 */
-            position: absolute;
-            top: 0;
-            left: 0;
-            transition: transform 0.3s;
+
+            transition: transform 0.5s;
+        }
+
+        .cd.spin .cd-inner {
+            transform: rotate(360deg);
         }
 
         .spin {
@@ -103,18 +120,24 @@
         }
 
         .image-container {
-            text-align: center;
-            /* 텍스트 가운데 정렬 */
+            display: flex;
+            /* 플렉스 박스를 사용하여 나란히 배치 */
+            align-items: center;
+            /* 수직 중앙 정렬 */
+            margin-left: 40px;
+            /* CD와의 간격 */
+            margin-top: 0; /* 상단 여백을 0으로 설정 */
         }
 
         .image-container img {
-            width: 250px;
+            width: 300px;
             /* 이미지 크기 조정 */
             height: auto;
             /* 비율 유지 */
-            margin-bottom: 10px;
+            margin-right: 10px;
             /* 이미지와 텍스트 간격 */
-            margin-left: 20px; /* CD와의 간격 */
+            margin-left: 40px;
+            /* CD와의 간격 */
         }
 
         .description {
@@ -126,25 +149,78 @@
 
         .cd-description {
             font-size: 16px;
-            /* CD 아래 설명 텍스트 크기 */
             color: #333;
-            /* 설명 텍스트 색상 */
             text-align: center;
-            /* 중앙 정렬 */
             margin-top: 10px;
-            /* 위쪽 여백 */
+            /* CD와의 간격을 조정 */
         }
 
         .container {
-            display: flex; /* CD와 이미지 컨테이너를 나란히 배치 */
-            align-items: center; /* 수직 중앙 정렬 *//
+            display: flex;
+            /* CD와 이미지 컨테이너를 나란히 배치 */
+            align-items: center;
+            /* 수직 중앙 정렬 */
+            text-align: center;
+            margin: 40px auto; /* 위쪽 여백을 늘려서 CD와 이미지 간격 조정 */
+        }
+
+        .movie-section {
+            margin-top: 60px; /* 영화 섹션과 CD 플레이어 간의 간격 조정 */
+            width: 100%;
+            max-height: 400px;
+            /* 최대 높이 설정 (필요에 따라 조정) */
+        }
+
+        .movie-container {
+            display: flex;
+            /* 가로 방향으로 배치 */
+            flex-direction: row;
+            /* 가로 방향으로 나열 */
+            justify-content: center;
+            /* 중앙 정렬 */
+            margin-top: 40px;
+        }
+
+        .movie {
+            margin: 40px; /* 영화 사이의 간격 조정 */
+            text-align: center;
+        }
+
+        .movie-poster {
+            width: 300px;
+            height: 300px;
+        }
+
+        .movie-description {
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        a {
+            text-decoration: none;
+            /* 링크 밑줄 제거 */
+            color: #007BFF;
+            /* 링크 색상 */
+        }
+
+        a:hover {
+            text-decoration: underline;
+            /* 링크에 호버 시 밑줄 추가 */
+        }
+
+        .divider {
+            width: 80%;
+            height: 2px;
+            background-color: #ccc;
+            /* 구분선을 위한 색상 */
+            margin: 20px auto;
+            /* 중앙 정렬 */
         }
     </style>
 </head>
 
 <body>
-    <title>FAVORITES</title>
-    <div class="title">🎵</div> <!-- 타이틀 추가 -->
+    <div class="title">FAVORITES <br> 🎵</div> <!-- 타이틀 추가 -->
     <div class="container">
         <div class="cd-player">
             <div class="cd" onclick="togglePlay()">
@@ -160,25 +236,42 @@
         </div>
     </div>
 
-    <script>
-        let isPlaying = false;
-        const audio = document.getElementById('audio');
-        const playButton = document.getElementById('playButton');
+    <div class="divider"></div> <!-- 새로운 구분선 박스 추가 -->
 
-        function togglePlay() {
-            const cd = document.querySelector('.cd'); // cd 요소를 선택
-            if (isPlaying) {
-                cd.classList.remove('spin');
-                audio.pause();
-                playButton.textContent = '▶'; // 버튼 텍스트 변경
-            } else {
-                cd.classList.add('spin');
-                audio.play();
-                playButton.textContent = '■'; // 버튼 텍스트 변경
+    <div class="movie-section">
+        <h2 id="title2">🎬</h2> <!-- 영화 섹션 제목 -->
+        <div class="movie-container">
+            <div class="movie">
+                <img src="image/나의 특별한 형제.webp" alt="영화1" class="movie-poster"> <!-- 영화 포스터 1 -->
+                <div class="movie-description">드라마, 코미디</div>
+                <a href="https://youtu.be/twolIo8t2B4?feature=shared" target="_blank">예고편 보기</a>
+            </div>
+            <div class="movie">
+                <img src="image/거울 속 외딴 성.webp" alt="영화2" class="movie-poster"> <!-- 영화 포스터 2 -->
+                <div class="movie-description">미스터리, 판타지, 드라마</div>
+                <a href="https://youtu.be/5kaqhEfrT-o?feature=shared" target="_blank">예고편 보기</a>
+            </div>
+        </div>
+
+        <script>
+            let isPlaying = false;
+            const audio = document.getElementById('audio');
+            const playButton = document.getElementById('playButton');
+
+            function togglePlay() {
+                const cd = document.querySelector('.cd'); // cd 요소를 선택
+                if (isPlaying) {
+                    cd.classList.remove('spin');
+                    audio.pause();
+                    playButton.textContent = '▶'; // 버튼 텍스트 변경
+                } else {
+                    cd.classList.add('spin');
+                    audio.play();
+                    playButton.textContent = '■'; // 버튼 텍스트 변경
+                }
+                isPlaying = !isPlaying;
             }
-            isPlaying = !isPlaying;
-        }
-    </script>
+        </script>
 
 </body>
 
