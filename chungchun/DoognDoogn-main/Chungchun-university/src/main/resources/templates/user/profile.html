@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+
+    <style>
+        /* Modal 스타일 */
+        .modal {
+            display: none; /* 기본적으로 숨김 */
+            position: fixed; /* 화면에 고정 */
+            z-index: 1; /* 다른 요소 위에 표시 */
+            left: 0;
+            top: 0;
+            width: 100%; /* 전체 너비 */
+            height: 100%; /* 전체 높이 */
+            overflow: auto; /* 필요시 스크롤 */
+            background-color: rgba(0, 0, 0, 0.4); /* 반투명 배경 */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 중앙 정렬 */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* 너비 설정 */
+            text-align: center; /* 텍스트 중앙 정렬 */
+        }
+
+        .close {
+            color: #aaa;
+            float: right; /* 우측 정렬 */
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<h1>내 정보 조회</h1>
+<div>
+    <p>ID: <span th:text="${user.userId}"></span></p>
+    <p>PWD : <span th:text="${user.userPwd}"></span></p>
+    <p>이름 : <span th:text="${user.userName}"></span></p>
+    <p>전화번호 : <span th:text="${user.userPhone}"></span></p>
+</div>
+<a th:href="@{/user/edit}">정보 수정</a>
+
+<button type="button" onclick="showModal()">회원탈퇴</button>
+
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>정말로 회원 탈퇴를 하시겠습니까?</h2>
+        <button onclick="confirmDelete()">YES</button>
+        <button onclick="closeModal()">NO</button>
+    </div>
+</div>
+
+<div id="successModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="goToMainPage()">&times;</span>
+        <h2>회원 탈퇴가 완료되었습니다.</h2>
+        <button onclick="goToMainPage()">콩닥..🤍</button>
+    </div>
+</div>
+
+<script>
+    function showModal() {
+        document.getElementById("myModal").style.display = "block"; // 모달 열기
+    }
+
+    function closeModal() {
+        document.getElementById("myModal").style.display = "none"; // 모달 닫기
+    }
+
+    function confirmDelete() {
+
+        console.log("confirmDelete 동작함...")
+        // AJAX 요청으로 폼 제출
+
+        fetch('/user/delete', {
+            method: 'POST',
+        })
+            .then(response => {
+                closeModal(); // 첫 번째 모달 닫기
+                document.getElementById("successModal").style.display = "block"; // 성공 모달 열기
+            })
+            .catch(error => {
+                alert('회원 탈퇴 처리 중 오류가 발생했습니다.'); // 오류 처리
+            });
+    }
+
+
+    function goToMainPage() {
+
+        fetch('auth/logout', {
+            method: 'POST',
+        })
+            .then(response => {
+                if (response.ok) {
+                    // 로그아웃 및 삭제 성공 시 리다이렉트
+                    window.location.href = "/"; // 로그아웃 후 이동할 URL
+                } else {
+                    alert('회원 탈퇴 처리 중 오류가 발생했습니다.'); // 오류 처리
+                }
+            })
+            .catch(error => {
+                console.error("오류 발생:", error); // 오류 로그
+                alert('회원 탈퇴 처리 중 오류가 발생했습니다.'); // 오류 처리
+            });
+        // // 메인 페이지로 이동하는 로직 (예: 메인 페이지 URL)
+        // window.location.href = "/"; // 적절한 메인 페이지 URL로 변경
+    }
+
+    // 모달 외부 클릭 시 모달 닫기
+    window.onclick = function (event) {
+        const modal1 = document.getElementById("myModal");
+        const modal2 = document.getElementById("successModal");
+        if (event.target == modal1) {
+            modal1.style.display = "none";
+        } else if (event.target == modal2) {
+            modal2.style.display = "none";
+        }
+    }
+</script>
+</body>
+</html>

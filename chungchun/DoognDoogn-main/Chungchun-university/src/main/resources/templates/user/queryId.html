@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>findId</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle&family=Kalnia+Glaze:wght@100..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('/image/sp-back.png'); /* 배경 이미지 URL로 대체 */
+            background-size: cover; /* 배경 이미지 크기 조정 */
+            background-position: center; /* 배경 이미지 위치 조정 */
+            height: 100vh; /* 전체 화면 높이 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            position: absolute; /* 절대 위치 지정 */
+            top: 60px; /* 상단에서 20px 아래 */
+            left: 70px; /* 왼쪽에서 20px 오른쪽 */
+            margin-bottom: 0; /* 입력 폼과 간격 제거 */
+        }
+
+        .find-container {
+            position: relative;
+            width: 800px; /* 로그인 박스 너비 */
+            padding: 20px; /* 패딩 조정 */
+            background-size: cover; /* 이미지가 박스를 가득 채우도록 */
+            background-position: center; /* 이미지 중앙 정렬 */
+            border-radius: 40px; /* 둥근 모서리 */
+            text-align: center; /* 텍스트 중앙 정렬 */
+            backdrop-filter: blur(10px); /* 배경 흐림 효과 */
+            height: auto; /* 높이를 자동으로 설정하여 내용에 맞게 조정 */
+            background-color: rgba(255, 255, 255, 0.8); /* 흰색 배경으로 겹치기 */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+            margin-top: 200px;
+        }
+
+        .form-container {
+            text-align: center; /* 가로 중앙 정렬 */
+            margin-bottom: 0; /* 아래 마진 제거 */
+            margin-top: 0; /* 위 마진 제거 */
+            padding: 0; /* 패딩 제거 (필요에 따라 조정 가능) */
+        }
+
+        .small-input {
+            width: 100%; /* 입력 필드 너비 조정 */
+            padding: 3px; /* 패딩 줄이기 */
+            border-radius: 40px; /* 둥글게 */
+            font-size: 14px; /* 폰트 사이즈 줄이기 */
+            margin-left: 40px;
+            display: inline-block; /* 인라인 블록으로 설정하여 나란히 정렬 */
+
+
+        }
+
+        input[type="text"],
+        input[type="text"] {
+            width: 20%; /* 입력 필드 너비 조정 */
+            padding: 8px; /* 패딩 줄이기 */
+            border: 3px solid #FF5693;
+            border-radius: 30px;
+            margin-bottom: 1px; /* 필드 간 간격 */
+            font-size: 14px; /* 폰트 사이즈 줄이기 */
+
+
+        }
+
+        #ID {
+            font-family: Dongle;
+            font-size: 30px;
+            margin-bottom: 5px; /* 제목과 입력 필드 간 간격 줄이기 */
+        }
+
+        h3#ID {
+            margin-bottom: 20px; /* 제목과 small-input 간 간격 줄이기 */
+        }
+
+        input[type="submit"] {
+            padding: 8px 12px; /* 패딩 줄이기 */
+            border: none;
+            border-radius: 20px; /* 둥글게 */
+            background-color: #ff99cc; /* 버튼 배경색 */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 80px; /* 버튼 너비 조정 */
+            font-size: 20px; /* 버튼 폰트 사이즈 줄이기 */
+            display: inline-block; /* 인라인 블록으로 설정 */
+            vertical-align: middle; /* 수직 정렬 */
+            margin-right: 80px;
+            font-family: Dongle;
+        }
+
+        .input-group {
+            display: flex; /* Flexbox 사용 */
+            justify-content: center; /* 가로 중앙 정렬 */
+            align-items: center; /* 수직 중앙 정렬 */
+        }
+
+        label{
+            font-family: Dongle;
+            font-size: 32px;
+        }
+    </style>
+</head>
+<body>
+<form th:action="@{/user/search}" th:method="post">
+    <div class="logo">
+        <a href="/">
+            <img src="/image/h-logo.png" alt="로고" width="100">
+        </a>
+    </div>
+    <div class="find-container">
+        <div class="form-container">
+            <h3 id="ID">ID 찾기</h3>
+            <div class="input-group">
+                <div class="small-input">
+                    <label>name : </label>
+                    <input type="text" name="userName">
+                    <label>phone : </label>
+                    <input type="text" name="userPhone">
+                </div>
+                <div>
+                    <input type="submit" class="small-button" value="찾기">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

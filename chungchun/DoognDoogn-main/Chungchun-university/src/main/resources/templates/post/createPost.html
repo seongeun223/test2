@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>createPost</title>
+</head>
+<body>
+<h1>게시글 작성</h1>
+<form th:action="@{/post/createPost}" method="post">
+    <div>
+        <div>
+            <label for="category">카테고리:</label>
+            <select id="category" name="categoryCode" required>
+                <option value="뜨개질 고수로 한걸음">뜨개질 고수로 한걸음</option>
+                <option value="핸드 드립 브루잉">핸드 드립 브루잉</option>
+                <option value="두근두근 게임 소프트웨어 만들기">두근두근 게임 소프트웨어 만들기</option>
+                <option value="간편 시 노래 창작">간편 시 노래 창작</option>
+                <option value="상상력 자극 가상체험">상상력 자극 가상체험</option>
+                <option value="null">자유</option>
+            </select>
+        </div>
+        <div>
+            <label for="title">제목:</label>
+            <input type="text" id="title" name="postTitle" required>
+        </div>
+        <div>
+            <label for="content">내용:</label>
+            <input type="text" id="content" name="postContent" required>
+        </div>
+        <div>
+            <button type="submit">Create</button>
+        </div>
+    </div>
+</form>
+</body>
+</html>

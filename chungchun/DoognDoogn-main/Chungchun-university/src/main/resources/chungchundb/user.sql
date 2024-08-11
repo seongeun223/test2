@@ -1,0 +1,6 @@
+INSERT INTO cc_user (user_id, user_pwd, user_name, user_phone, user_auth) VALUES
+                                                                           ('ADMIN', '$2a$10$Zo5VVleQRyPhtJTC1JZ3geu6o45qzK62hi2piCvq7YBEpzMyPRJJO', '홍길동', '010-1234-5678', 'ROLE_ADMIN'),
+                                                                           ('user2', '$2a$10$Zo5VVleQRyPhtJTC1JZ3geu6o45qzK62hi2piCvq7YBEpzMyPRJJO', '김앙츄', '010-2345-6789', 'ROLE_USER'),
+                                                                           ('user3', '$2a$10$Zo5VVleQRyPhtJTC1JZ3geu6o45qzK62hi2piCvq7YBEpzMyPRJJO', '삼패기', '010-3456-7890', 'ROLE_USER'),
+                                                                           ('user4', '$2a$10$Zo5VVleQRyPhtJTC1JZ3geu6o45qzK62hi2piCvq7YBEpzMyPRJJO', '박지민', '010-4567-8901', 'ROLE_USER'),
+                                                                           ('user5', '$2a$10$Zo5VVleQRyPhtJTC1JZ3geu6o45qzK62hi2piCvq7YBEpzMyPRJJO', '최민수', '010-5678-9012', 'ROLE_USER');

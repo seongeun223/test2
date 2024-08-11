@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang=xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>alert</title>
+</head>
+<style>
+    .modal {
+        display: none; /* 기본적으로 숨김 */
+        position: fixed; /* 화면에 고정 */
+        z-index: 1; /* 다른 요소 위에 표시 */
+        left: 0;
+        top: 0;
+        width: 100%; /* 전체 너비 */
+        height: 100%; /* 전체 높이 */
+        overflow: auto; /* 필요시 스크롤 */
+        background-color: rgba(0, 0, 0, 0.4); /* 반투명 배경 */
+    }
+
+    .modal-content {
+        background-color: #9147b8;
+        margin: 15% auto; /* 중앙 정렬 */
+        padding: 20px;
+        border: 1px solid #68b54e;
+        width: 80%; /* 너비 설정 */
+        text-align: center; /* 텍스트 중앙 정렬 */
+    }
+
+    .close {
+        color: #b53c3c;
+        float: right; /* 우측 정렬 */
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #ae5a5a;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+<body>
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>회원가입이 완료되었습니다.</h2>
+        <button onclick="goToLogin()">두근</button>
+    </div>
+</div>
+</body>
+</html>
+</html>

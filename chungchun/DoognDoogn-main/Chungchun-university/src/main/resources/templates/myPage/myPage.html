@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyPage</title>
+</head>
+<body>
+
+<h1>안녕하세요 마이페이지입니다. 일단은 로그용으로 남겨요</h1>
+<h2>마이페이지</h2>
+<h3> 이거 나중에 nav 네이게이트 바랑 연동해야함
+지금은 링크 확인 혹은 다른 기능이 구현되는지 구동용 테스트 입니다.</h3>
+<div class="myPageNav1">
+    <h3>개인정보 관리</h3>
+    <ul>
+        <li>
+            <a th:href="@{/user/profile}">나의 정보</a>
+        </li>
+    </ul></div>
+
+<div class="myPageNav2">
+        <h3>내 게시글 관리</h3>
+    <ul>
+<!--        <a th:href="@{/post/}">내가 작성한 게시글</a>-->
+        <li>
+            <a th:href="@{/comment/myComment}">내가 작성한 댓글</a>
+        </li>
+        <li>
+<!--            <a th:href="">나의 좋아요 게시글</a>-->
+        </li>
+    </ul>
+</div>
+
+<div class="myPageNav3">
+    <h3>나의 수강신청 목록</h3>
+        <ul>
+        <li>
+            <a th:href="@{/myClass/myClassList}">나의 강의</a>
+        </li>
+        </ul>
+</div>
+
+<div class="myPageNav4">
+    <a href="">내 출석 관리</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>PostNav</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle&family=Jua&display=swap" rel="stylesheet">
+</head>
+<style th:fragment="postNavStyle">
+    body {
+        background-color: #FFC8DD;
+    }
+
+    .mainTopPostNav {
+        margin-top: 180px;
+        margin-left: 100px;
+        padding: 50px;
+        background-color: #CDB4DB;
+        width: 150px;
+        height: 150px;
+        border-radius: 20px;
+        position: inherit;
+        border: 7px solid white;
+    }
+
+    #crown {
+        transform: translateX(-10px);
+    }
+
+    .mainInfo {
+        margin-left: 20px;
+        margin-top: -45px;
+    }
+
+    .searchMyPost {
+        margin-top: -5px;
+        margin-left: -10px;
+        width: 135px;
+        height: 40px;
+        background-color: white;
+        border-radius: 20px;
+        border: none;
+    }
+
+    a {
+        font-family: "Jua", sans-serif;
+        font-size: 22px;
+        text-decoration: none;
+    }
+
+    .mainBottomPostNav {
+        margin-top: 20px;
+        margin-left: 100px;
+        padding: 50px;
+        background-color: #CDB4DB;
+        width: 150px;
+        height: 280px;
+        border-radius: 20px;
+        position: inherit;
+        border: 7px solid white;
+    }
+
+    li {
+        margin-top: 8px;
+        margin-bottom: 10px;
+        list-style-type: none;
+        font-size: 18px;
+    }
+
+    .ClassList {
+        margin-top: -45px;
+        margin-left: -10px;
+    }
+
+
+    #v-line1 {
+        margin-left: 165px;
+        margin-top: -323px;
+        border-left: 3.2px solid #000;
+        height: 179px;
+    }
+
+    #v-line2 {
+        margin-left: 165px;
+        border-left: 3.2px solid #000;
+        height: 26px;
+    }
+
+    #v-subLine1 {
+        margin-left: -5px;
+        transform: translate(0px, 10px);
+        font-size: 20px;
+    }
+
+    #v-subLine2 {
+        margin-left: -5px;
+        margin-top: 10px;
+        transform: translate(0px, 10px);
+        font-size: 20px;
+    }
+
+    #v-subLine3 {
+        margin-left: -5px;
+        margin-top: 13px;
+        transform: translate(0px, 10px);
+        font-size: 20px;
+    }
+
+    #v-subLine4 {
+        margin-left: -5px;
+        margin-top: 11px;
+        transform: translate(0px, 10px);
+        font-size: 20px;
+    }
+
+    #v-subLine5 {
+        margin-left: -5px;
+        margin-top: 12px;
+        transform: translate(0px, 10px);
+        font-size: 20px;
+    }
+
+    #v-subLine6 {
+        margin-left: -5px;
+        margin-top: 73px;
+        transform: translate(0px, 10px);
+        font-size: 20px;
+    }
+</style>
+<nav th:fragment="nav">
+    <div class="mainTopPostNav">
+        <div class="hi" id="user_name">
+            <div class="mainInfo">
+                <div id="crown">
+                    <img src="/image/왕관.png" alt="왕관" width="130px">
+                </div>
+                <h1 style="margin-top: 0; margin-left: 10px">[[|${ #authentication.principal.user.userName }님|]]</h1>
+                <h2 style="margin-left: 10px">ドキドキ</h2>
+                <button class="searchMyPost">내 게시글 조회</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="mainBottomPostNav">
+
+        <div class="ClassList">
+            <h2>강의</h2>
+            <ul>
+                <li><a href="">뜨개질</a></li>
+                <li><a href="">핸드 드립</a></li>
+                <li><a href="">소프트웨어</a></li>
+                <li><a href="">시.창작</a></li>
+                <li><a href="">가상체험</a></li>
+            </ul>
+            <h2>기타</h2>
+            <ul>
+                <li><a href="">기타</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="vLine">
+        <div id="v-line1">
+            <div id="v-subLine1">&#10142;</div>
+            <div id="v-subLine2">&#10142;</div>
+            <div id="v-subLine3">&#10142;</div>
+            <div id="v-subLine4">&#10142;</div>
+            <div id="v-subLine5">&#10142;</div>
+        </div>
+        <div id="v-line2">
+            <div id="v-subLine6">&#10142;</div>
+        </div>
+    </div>
+</nav>
+
+</html>

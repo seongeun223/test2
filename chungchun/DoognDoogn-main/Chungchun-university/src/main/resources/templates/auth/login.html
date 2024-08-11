@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+    <style>
+        * {
+            margin: 15px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0; /* 기본 배경색 */
+        }
+
+        .login-container {
+            position: relative;
+            width: 1000px; /* 로그인 박스 너비 */
+            padding: 20px;
+            background-image: url('/image/loginform.png'); /* 배경 이미지 URL로 대체 */
+            background-size: cover; /* 이미지가 박스를 가득 채우도록 */
+            background-position: center; /* 이미지 중앙 정렬 */
+            border-radius: 40px; /* 둥근 모서리 */
+            text-align: center; /* 텍스트 중앙 정렬 */
+            backdrop-filter: blur(10px); /* 배경 흐림 효과 */
+            height: 550px; /* 로그인 박스 높이 조정 */
+        }
+
+        .logo {
+            margin-bottom: 20px; /* 로고와 입력 폼 간 간격 */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 80%; /* 입력 필드 너비 조정 */
+            padding: 8px; /* 패딩 줄이기 */
+            border: 1px solid #ccc;
+            border-radius: 30px;
+            margin-bottom: 10px; /* 필드 간 간격 */
+            font-size: 14px; /* 폰트 사이즈 줄이기 */
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 20px; /* 둥글게 */
+            background-color: #ff99cc; /* 버튼 배경색 */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            font-size: 14px; /* 버튼 폰트 사이즈 줄이기 */
+        }
+
+        button:hover {
+            background-color: #ff66aa; /* 버튼 호버 색상 */
+        }
+
+
+        .small-button {
+            padding: 8px 12px; /* 패딩 줄이기 */
+            border: none;
+            border-radius: 20px; /* 둥글게 */
+            background-color: #ff99cc; /* 버튼 배경색 */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 150px; /* 버튼 너비 조정 */
+            font-size: 14px; /* 버튼 폰트 사이즈 줄이기 */
+        }
+
+        .small-button:hover {
+            background-color: #ff66aa; /* 버튼 호버 색상 */
+        }
+
+        .small-input {
+            width: 50%; /* 입력 필드 너비 조정 */
+            padding: 8px; /* 패딩 줄이기 */
+            border-radius: 40px; /* 둥글게 */
+            font-size: 14px; /* 폰트 사이즈 줄이기 */
+            margin-bottom: 15px; /* 필드 간 간격 */
+            margin-right: 1px; /* 버튼과의 간격 */
+            margin-left: 40px;
+        }
+
+        .small-button2 {
+            padding: 8px 12px; /* 패딩 줄이기 */
+            border: none;
+            border-radius: 20px; /* 둥글게 */
+            background-color: #ff99cc; /* 버튼 배경색 */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 150px; /* 버튼 너비 조정 */
+            font-size: 14px; /* 버튼 폰트 사이즈 줄이기 */
+            height: 100px;
+            margin-left: 15px; /* 오른쪽으로 이동 */
+            margin-top: 50px;
+            margin-right: 10px;
+
+        }
+
+        .small-button2:hover {
+            background-color: #ff66aa; /* 버튼 호버 색상 */
+        }
+
+        .form-container {
+            display: flex; /* Flexbox 사용 */
+            align-items: center; /* 세로 중앙 정렬 */
+            gap: 10px; /* 간격 설정 */
+        }
+
+        .button-container {
+            display: flex; /* Flexbox 사용 */
+            justify-content: space-between; /* 양쪽 끝으로 정렬 */
+            align-items: center; /* 세로 중앙 정렬 */
+            width: 700px;
+            margin-left: 85px;
+        }
+    </style>
+</head>
+<body>
+<div class="login-container">
+    <div class="logo">
+        <a href="/">
+            <img src="/image/h-logo.png" alt="로고" width="100"> <!-- 로고 이미지 URL로 대체 -->
+        </a>
+        <form th:action="@{/auth/login}" th:method="post">
+            <div class="form-container">
+                <div class="small-input">
+                    <label for="userId"></label>
+                    <input type="text" name="userId" id="userId" required placeholder="ID">
+                    <label for="userPwd"></label>
+                    <input type="password" name="userPwd" id="userPwd" required placeholder="PWD">
+                </div>
+                <div>
+                    <a th:href="@{/}">
+                        <button type="submit" class="small-button2">logIn</button>
+                    </a>
+                </div>
+            </div>
+        </form>
+
+        <div class="button-container">
+            <div class="left-button">
+                <!--        <a th:href="@{/user/register}" class="link"></a>-->
+                <button type="submit" class="small-button" onclick="location.href='/user/register'">회원가입</button>
+            </div>
+
+            <div class="right-button">
+                <!--        <a th:href="@{/user/search}" class="link"></a>-->
+                <button type="submit" class="small-button" onclick="location.href='/user/search'">ID 찾기</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

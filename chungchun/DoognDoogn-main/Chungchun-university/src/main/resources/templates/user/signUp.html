@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('/image/sp-back.png'); /* 배경 이미지 URL로 대체 */
+            background-size: cover; /* 배경 이미지 크기 조정 */
+            background-position: center; /* 배경 이미지 위치 조정 */
+            height: 100vh; /* 전체 화면 높이 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Modal 스타일 */
+        .modal {
+            display: none; /* 기본적으로 숨김 */
+            position: fixed; /* 화면에 고정 */
+            z-index: 1; /* 다른 요소 위에 표시 */
+            left: 0;
+            top: 0;
+            width: 100%; /* 전체 너비 */
+            height: 100%; /* 전체 높이 */
+            overflow: auto; /* 필요시 스크롤 */
+            background-color: rgba(0, 0, 0, 0.4); /* 반투명 배경 */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 중앙 정렬 */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* 너비 설정 */
+            text-align: center; /* 텍스트 중앙 정렬 */
+        }
+
+        .close {
+            color: #aaa;
+            float: right; /* 우측 정렬 */
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .sign-container {
+            position: relative;
+            width: 600px; /* 로그인 박스 너비 */
+            padding: 20px;
+            background-size: cover; /* 이미지가 박스를 가득 채우도록 */
+            background-position: center; /* 이미지 중앙 정렬 */
+            border-radius: 40px; /* 둥근 모서리 */
+            text-align: center; /* 텍스트 중앙 정렬 */
+            backdrop-filter: blur(10px); /* 배경 흐림 효과 */
+            height: 400px; /* 로그인 박스 높이 조정 */
+            background-color: rgba(255, 255, 255, 0.8); /* 흰색 배경으로 겹치기 */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+            margin-top: 230px;
+        }
+
+        .form-container {
+            width: 300px;
+            float: left;
+        }
+
+        .logo {
+            position: absolute; /* 절대 위치 지정 */
+            top: 60px; /* 상단에서 20px 아래 */
+            left: 70px; /* 왼쪽에서 20px 오른쪽 */
+            margin-bottom: 0; /* 입력 폼과 간격 제거 */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 80%; /* 입력 필드 너비 조정 */
+            padding: 8px; /* 패딩 줄이기 */
+            border: 3px solid #FF5693;
+            border-radius: 30px;
+            margin-bottom: 1px; /* 필드 간 간격 */
+            font-size: 14px; /* 폰트 사이즈 줄이기 */
+        }
+
+        #registerButton {
+            width: 300px;
+            float: left;
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 20px; /* 둥글게 */
+            background-color: #ff99cc; /* 버튼 배경색 */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            font-size: 14px; /* 버튼 폰트 사이즈 줄이기 */
+        }
+
+        button:hover {
+            background-color: #ff66aa; /* 버튼 호버 색상 */
+        }
+
+
+        .small-button {
+            padding: 8px 12px; /* 패딩 줄이기 */
+            border: none;
+            border-radius: 20px; /* 둥글게 */
+            background-color: #ff99cc; /* 버튼 배경색 */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 150px; /* 버튼 너비 조정 */
+            font-size: 14px; /* 버튼 폰트 사이즈 줄이기 */
+            margin-left: 50px;
+            margin-top: 315px;
+        }
+
+        .small-button:hover {
+            background-color: #ff66aa; /* 버튼 호버 색상 */
+        }
+
+        .small-input {
+            width: 100%; /* 입력 필드 너비 조정 */
+            padding: 8px; /* 패딩 줄이기 */
+            border-radius: 40px; /* 둥글게 */
+            font-size: 14px; /* 폰트 사이즈 줄이기 */
+
+            margin-right: 1px; /* 버튼과의 간격 */
+            margin-left: 40px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+
+<form th:action="@{/user/register}" th:method="post">
+    <div class="logo">
+        <a href="/">
+            <img src="/image/h-logo.png" alt="로고" width="100">
+        </a>
+    </div>
+    <div class="sign-container">
+        <div class="form-container">
+            <div class="small-input">
+                <label></label>
+                <input type="text" name="userId" id="userId" placeholder="ID"><br>
+            </div>
+            <div class="small-input">
+                <label></label>
+                <input type="password" name="userPwd" id="userPwd" placeholder="PWD"><br>
+            </div>
+            <div class="small-input">
+                <label></label>
+                <input type="text" name="userName" id="userName" placeholder="NAME"><br>
+            </div>
+            <div class="small-input">
+                <label></label>
+                <input type="text" name="userPhone" id="userPhone" placeholder="PHONE"><br>
+            </div>
+        </div>
+        <div id="registerButton">
+            <div class="button-container">
+                <button type="button" class="small-button" onclick="registUser()">회원가입</button>
+            </div>
+
+
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h2>회원가입이 완료되었습니다.</h2>
+                    <button onclick="goToLogin()">두근</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function registUser() {
+            const userId = document.getElementById("userId").value;
+            const userPwd = document.getElementById("userPwd").value;
+            const userName = document.getElementById("userName").value;
+            const userPhone = document.getElementById("userPhone").value;
+
+            // 필드가 비어있는지 확인
+            if (!userId || !userPwd || !userName || !userPhone) {
+                alert("작성하지 않은 칸이 있습니다.");
+                return;
+            }
+
+            // 모든 필드가 입력된 경우 모달 열기
+            document.getElementById("myModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        function goToLogin() {
+            window.location.href = "/auth/login"; // 로그인 화면의 URL로 변경
+        }
+
+        // 모달 외부 클릭 시 모달 닫기
+        window.onclick = function (event) {
+            const modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</form>
+</body>
+</html>

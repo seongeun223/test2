@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>nav</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle&family=Jua&display=swap" rel="stylesheet">
+</head>
+<nav th:fragment="nav"></nav>
+<style>
+ .myInfoMain {
+     margin-top: 180px;
+     margin-left: 100px;
+     padding: 50px;
+     background-color: #CDB4DB;
+     width: 150px;
+     height: 550px;
+     border-radius: 20px;
+     position: inherit;
+ }
+
+ a {
+     font-family: "Jua", sans-serif;
+     font-size: 22px;
+     /*font-family: 나눔고딕;*/
+     text-decoration: none;
+ }
+
+ h2{
+     font-family: "Jua", sans-serif;
+     margin-top: -12px;
+     margin-left: 15px;
+ }
+ .v-line{
+     margin-left: 18px;
+     margin-top: -530px;
+     border-left: 3.2px solid #000;
+     height: 500px;
+ }
+ .info1{
+     font-family: "Jua", sans-serif;
+     margin-top: 30px;
+     margin-left: -40px;
+     li{
+         margin-bottom: 10px;
+         list-style-type: none;
+         font-size: 18px;
+     }
+
+ }
+
+ .info2{
+     width: 250px;
+     margin-top: 50px;
+     li{
+         margin-bottom: 10px;
+         list-style-type: none;
+         font-size: 18px;
+     }
+ }
+
+ .info3{
+     margin-top: 70px;
+     li{
+         margin-bottom: 10px;
+         list-style-type: none;
+         font-size: 18px;
+     }
+ }
+
+ .info4{
+     margin-top: 80px;
+     li{
+         list-style-type: none;
+         font-size: 18px;
+     }
+ }
+
+ .v-subLine1{
+     margin-left: 17px;
+     margin-top: -488px;
+     font-size: 20px;
+ }
+
+ .v-subLine2{
+     margin-left: 17px;
+     margin-top: 87px;
+     font-size: 20px;
+ }
+
+ .v-subLine3{
+     margin-left: 17px;
+     margin-top: 181px;
+     font-size: 20px;
+ }
+
+ .v-subLine4{
+     margin-left: 17px;
+     margin-top: 118px;
+     font-size: 20px;
+ }
+</style>
+<body>
+
+
+<div class="myInfoMain">
+    <h2>마이페이지</h2>
+    <div class="info1">
+        <ul>
+            <li><b><a href="">개인정보 관리</a></b></li>
+            <li><a href="">&#10551;   나의 정보</a> </li>
+        </ul>
+    <div class="info2">
+        <ul>
+            <li><b><a href="">내 게시글 관리</a></b></li>
+            <li><a href="">&#10551;  내가 작성한 게시글</a> </li>
+            <li><a href="">&#10551;  내가 작성한 댓글</a> </li>
+            <li><a href="">&#10551;  내가 작성한 댓글</a> </li>
+        </ul>
+    <div class="info3">
+        <ul>
+            <li><b><a href="">나의 수강신청 목록</a></b></li>
+            <li><a href="">&#10551;  나의 강의</a> </li>
+        </ul>
+    <div class="info4">
+            <ul>
+                <li><b><a href="">내 출석 관리</a></b></li>
+            </ul>
+        <div class="v-line"></div>
+        <div class="v-subLine1">&#10142;</div>
+        <div class="v-subLine2">&#10142;</div>
+        <div class="v-subLine3">&#10142;</div>
+        <div class="v-subLine4">&#10142;</div>
+</div>
+</div>
+</div>
+</body>
+</html>

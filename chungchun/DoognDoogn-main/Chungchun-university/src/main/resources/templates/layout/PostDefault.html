@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 기본 페이지</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle&family=Jua&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+          integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <style th:include="~{fragments/header::headerStyle}"></style>
+    <style th:include="~{fragments/PostNav::postNavStyle}"></style>
+    <style layout:fragment="style"></style>
+    <style>
+        #wrap {
+            min-width: 1500px;
+        }
+        #header {
+            width: 1400px;
+            margin: 0 auto;
+        }
+        #container{
+            position: relative;
+            width: 1400px;
+            margin: 0 auto;
+            padding-bottom: 50px;
+        }
+        #nav {
+            width: 350px;
+            margin-left: -100px;
+            margin-top: -120px;
+            float: left;
+        }
+        #content{
+            width: 1000px;
+            margin-left: 50px;
+            margin-top: 50px;
+            float: left;
+        }
+    </style>
+
+</head>
+<body>
+<div id="wrap">
+    <div id="header">
+        <header th:include="~{fragments/header::header}"></header>
+    </div>
+    <div id="container">
+        <nav th:include="~{fragments/PostNav::nav}" id="nav"></nav>
+        <section>
+            <div layout:fragment="content" id="content"></div>
+        </section>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+    <h1>내 정보 수정</h1>
+    <form th:action="@{/user/edit}" th:object="${user}" method="post">
+        <div>
+            <label>이름 :</label>
+            <input type="text" th:field="${user.userName}" required/>
+        </div>
+        <div>
+            <label>전화번호 :</label>
+            <input type="text" th:field="${user.userPhone}" required/>
+        </div>
+        <button type="submit">수정하기</button>
+    </form>
+</body>
+</html>

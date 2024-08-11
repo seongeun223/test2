@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout/default}">
+<head>
+    <style>
+        html, main {
+            height: 100%; /* 전체 높이를 100%로 설정 */
+            margin: 0; /* 기본 여백 제거 */
+        }
+
+        .main {
+            display: flex; /* Flexbox 사용 */
+            flex-direction: column; /* 세로 방향으로 정렬 */
+            align-items: center; /* 중앙 정렬 */
+            justify-content: center; /* 중앙 정렬 */
+            width: 100%; /* 전체 너비 사용 */
+            height: 100%; /* 전체 높이 사용 */
+            position: relative; /* 상대 위치 설정 */
+        }
+
+        @keyframes colorChange {
+            0% {
+                background-color: transparent;
+            }
+            50% {
+                background-color: #A0D3FF; /* 원하는 색상으로 변경 */
+            }
+            100% {
+                background-color: transparent;
+            }
+        }
+
+        .image-container {
+            position: fixed; /* 고정 위치 */
+            bottom: 20px; /* 하단에서 20px */
+        }
+
+        .image-container.left {
+
+            left: 20px; /* 왼쪽에서 20px */
+
+        }
+
+        .image-container.right {
+
+            right: 20px; /* 오른쪽에서 20px */
+            transform: scaleX(-1); /* 좌우 반전 */
+        }
+
+        img {
+            max-width: 100%; /* 화면 크기에 맞게 비율 조정 */
+            height: auto; /* 비율 유지 */
+        }
+
+        .highlight-image {
+            animation: bounce 1s infinite;
+            position: absolute;
+            width: 15vw; /* 뷰포트 너비에 비례 */
+            height: auto; /* 비율 유지 */
+            left: 60%; /* 화면 비율에 맞춰 위치 조정 */
+            top: 70%; /* 화면 비율에 맞춰 위치 조정 */
+            transform: rotate(-17deg) translate(-50%, -50%); /* 중심으로 위치 조정 */
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        #logo-link {
+            margin-top: 70px; /* 아래쪽 여백 조정 */
+            pointer-events: auto; /* 클릭 이벤트 활성화 */
+            display: inline-block; /* 블록으로 설정하여 이미지 크기와 클릭 영역 일치 */
+
+        }
+
+        #logo-link-of {
+            margin-top: 70px; /* 위쪽 여백 조정 (필요시) */
+        }
+
+        #logo-link, #logo-link-of {
+            display: flex; /* Flexbox 사용 */
+            flex-direction: column; /* 세로 방향으로 정렬 */
+            align-items: center; /* 중앙 정렬 */
+            justify-content: center; /* 중앙 정렬 */
+        }
+
+        #logo-link a {
+            display: inline-block; /* 이미지와 함께 클릭 영역 설정 */
+            cursor: pointer; /* 포인터 커서로 변경 */
+        }
+
+        #logo-link img {
+            max-width: 100%; /* 이미지가 부모 요소의 너비를 초과하지 않도록 설정 */
+            height: auto; /* 비율 유지 */
+        }
+    </style>
+</head>
+
+<div class="main">
+    <div layout:fragment="content">
+        <!-- 로그인 화면으로 이동 -> (여기에 하트 이미지 반영 예정!) -->
+        <div sec:authorize="isAnonymous()">
+            <a id="logo-link" th:href="@{/auth/login}">
+                <img src="/image/h-logo.png" style="width: 500px; height: 500px;" alt="h_logo">
+            </a>
+        </div>
+        <div sec:authorize="isAuthenticated()">
+            <a id="logo-link-of">
+                <img src="/image/h-logo.png" style="width: 500px; height: 500px;" alt="h_logo">
+            </a>
+        </div>
+        <!-- 강조할 이미지 추가 -->
+        <div sec:authorize="isAnonymous()" class="highlight-image" style="position: absolute; bottom: 20px; right: 20px;">
+            <img src="/image/finger.png" alt="강조 이미지" id="highlight-image" style="width: 100px; height: auto;">
+        </div>
+
+
+        <div sec:authorize="isAuthenticated()">
+            <div class="image-container left">
+                <img src="/image/s-cookie.png" alt="딸기 이미지">
+            </div>
+            <div class="image-container right">
+                <img src="/image/s-cookie.png" alt="딸기 이미지">
+            </div>
+        </div>
+
+        <div sec:authorize="isAuthenticated()">
+            <form id="logout-form" th:action="@{/auth/logout}" method="post" style="display:none;">
+                <input type="submit" value="로그아웃">
+            </form>
+        </div>
+    </div>
+
+
+    <!-- 아직 구현되지 않은 페이지로 인해 a태그 위치를 잡지를 못할 경우 여기 아래에 임시로 작성해주기!-->
+    <div sec:authorize="isAuthenticated()">
+        <a th:href="@{/user/profile}">내 정보 조회</a>
+    </div>
+</div>
+
+<script>
+    document.getElementById("logo-link-of").onclick = function () {
+        const logoImage = document.getElementById("logo-image");
+        logoImage.classList.add("color");
+
+        setTimeout(() => {
+            logoImage.classList.remove("color");
+        }, 1000); // 애니메이션 지속 시간과 일치
+    };
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const logoLink = document.getElementById('logo-link');
+        const logoImage = logoLink.querySelector('img');
+
+        logoLink.addEventListener('click', function (event) {
+            // 클릭된 영역이 이미지가 아닐 경우 기본 동작 방지
+            if (event.target !== logoImage) {
+                event.preventDefault(); // 기본 링크 동작 방지
+            }
+        });
+    });
+
+    document.getElementById("logo-link").onclick = function (event) {
+        // 여기서 로그인 페이지로 이동
+        const highlightImage = document.getElementById("highlight-image");
+        highlightImage.classList.remove("bounce"); // 애니메이션 초기화
+
+        // 클릭 후 애니메이션 다시 시작
+        setTimeout(() => {
+            highlightImage.classList.add("bounce");
+        }, 100); // 클릭 후 약간의 지연 후 애니메이션 시작
+    };
+
+</script>
+
+</html>
