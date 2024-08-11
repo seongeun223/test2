@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>like</title>
+</head>
+<body>
+<h1>내 좋아요 조회</h1>
+<div th:each="like : ${likes}">
+    <p>
+        게시글 번호: <span th:text="${like.post.id}"></span><br>
+        생성일자: <span th:text="${like.createDate}"></span><br>
+        <button th:onclick="'toggleLike(' + ${like.post.id} + ')'">하트 아이콘</button>
+    </p>
+</div>
+
+<script>
+    function toggleLike(postId) {
+        // AJAX 호출로 좋아요 추가/삭제 처리
+        // 성공적으로 처리된 후 페이지 새로고침 또는 목록 갱신
+    }
+</script>
+</body>
+</html>

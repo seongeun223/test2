@@ -43,7 +43,7 @@ public class AuthController {
             session.setAttribute("role", user.getRole()); // 사용자 역할 저장
 
             // 역할에 따라 리디렉션 경로 결정
-            if ("ROLE_ADMIN".equals(user.getRole())) {
+            if ("ADMIN".equals(user.getRole())) {
                 log.info("관리자로 로그인했습니다: {}", userId);
                 return "redirect:/admin/admin"; // 관리자 페이지로 리다이렉트
             } else {
